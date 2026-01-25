@@ -379,14 +379,24 @@
             gap: 40px;
         }
         
+        .community-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+        }
+        
         .community-card {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border-radius: var(--border-radius);
             padding: 40px;
             box-shadow: var(--box-shadow);
-            max-width: 600px;
+            max-width: 500px;
             width: 100%;
             border: 1px solid var(--light-gray);
+            flex: 1;
+            min-width: 300px;
         }
         
         .community-icon {
@@ -423,7 +433,7 @@
             object-fit: cover;
         }
         
-        .qq-group-info {
+        .qq-group-info, .wechat-info {
             background-color: white;
             padding: 20px;
             border-radius: var(--border-radius);
@@ -435,7 +445,7 @@
             font-weight: 600;
         }
         
-        .qq-group-info i {
+        .qq-group-info i, .wechat-info i {
             color: var(--primary-color);
             font-size: 1.5rem;
         }
@@ -478,7 +488,7 @@
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: var(--border-radius);
             padding: 30px;
-            width: 280px;
+            width: 250px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: var(--transition);
@@ -645,6 +655,11 @@
             .community-card {
                 padding: 30px 20px;
             }
+            
+            .community-cards {
+                flex-direction: column;
+                align-items: center;
+            }
         }
         
         @media (max-width: 576px) {
@@ -666,10 +681,15 @@
                 font-size: 1.8rem;
             }
             
-            .qq-group-info {
+            .qq-group-info, .wechat-info {
                 flex-direction: column;
                 gap: 10px;
                 padding: 15px;
+            }
+            
+            .download-card {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -717,7 +737,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="万能工具盒应用界面" class="app-mockup">
+                    <img src="imgs/home.jpg" alt="万能工具盒应用界面" class="app-mockup">
                 </div>
             </div>
         </div>
@@ -858,39 +878,66 @@
         </div>
     </section>
 
-    <!-- QQ群区域 -->
+    <!-- QQ群和公众号区域 -->
     <section class="community" id="community">
         <div class="container">
             <div class="section-title">
                 <h2>加入我们的社群</h2>
-                <p>加入QQ群，获取最新更新、反馈问题和与其他用户交流</p>
+                <p>加入QQ群，关注微信公众号，获取最新更新、反馈问题和与其他用户交流</p>
             </div>
             
             <div class="community-content">
-                <div class="community-card">
-                    <div class="community-icon">
-                        <i class="fab fa-qq"></i>
-                    </div>
-                    <h3>万能工具盒交流群</h3>
-                    <p class="community-text">
-                        欢迎加入万能工具盒官方QQ群！在这里您可以获取最新版本信息，反馈使用中的问题，提出功能建议，并与其他用户交流使用心得。
-                    </p>
-                    
-                    <div class="qrcode-container">
-                        <!-- 这里放置您的QQ群二维码图片 -->
-                        <div class="qrcode-image">
-                            <img src="imgs/QQscan.jpg" alt="QQ群二维码">
+                <div class="community-cards">
+                    <div class="community-card">
+                        <div class="community-icon">
+                            <i class="fab fa-qq"></i>
+                        </div>
+                        <h3>万能工具盒交流群</h3>
+                        <p class="community-text">
+                            欢迎加入万能工具盒官方QQ群！在这里您可以获取最新版本信息，反馈使用中的问题，提出功能建议，并与其他用户交流使用心得。
+                        </p>
+                        
+                        <div class="qrcode-container">
+                            <div class="qrcode-image">
+                                <img src="imgs/QQscan.jpg" alt="QQ群二维码">
+                            </div>
+                            
+                            <div class="qq-group-info">
+                                <i class="fab fa-qq"></i>
+                                <span>QQ群号: 207436882</span>
+                            </div>
                         </div>
                         
-                        <div class="qq-group-info">
-                            <i class="fab fa-qq"></i>
-                            <span>QQ群号: 207436882</span>
-                        </div>
+                        <p class="community-text" style="margin-top: 20px;">
+                            扫描上方二维码或搜索群号 <strong>207436882</strong> 加入我们的社群。
+                        </p>
                     </div>
                     
-                    <p class="community-text" style="margin-top: 20px;">
-                        扫描上方二维码或搜索群号 <strong>207436882</strong> 加入我们的社群。我们的开发团队会定期在群内发布更新信息，并解答用户的问题。
-                    </p>
+                    <div class="community-card">
+                        <div class="community-icon">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <h3>微信公众号</h3>
+                        <p class="community-text">
+                            关注万能工具盒微信公众号，获取最新版本信息、使用技巧和功能更新通知。
+                        </p>
+                        
+                        <div class="qrcode-container">
+                            <div class="qrcode-image">
+                                <!-- 这里放置您的微信公众号二维码图片 -->
+                                <img src="imgs/wechat.jpg" alt="微信公众号二维码">
+                            </div>
+                            
+                            <div class="wechat-info">
+                                <i class="fab fa-weixin"></i>
+                                <span>万能工具盒公众号</span>
+                            </div>
+                        </div>
+                        
+                        <p class="community-text" style="margin-top: 20px;">
+                            扫描上方二维码关注我们的微信公众号，第一时间获取更新信息。
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -900,7 +947,7 @@
     <section class="download" id="download">
         <div class="container">
             <h2>立即下载万能工具盒</h2>
-            <p>适用于 Android 和 iOS 设备，完全免费使用。立即下载，体验多功能工具集合带来的便利。</p>
+            <p>适用于 Android 和 iOS 设备，也可通过百度网盘下载，完全免费使用。立即下载，体验多功能工具集合带来的便利。</p>
             
             <div class="download-options">
                 <div class="download-card">
@@ -913,6 +960,15 @@
                 </div>
                 
                 <div class="download-card">
+                    <i class="fab fa-baidu"></i>
+                    <h3>百度网盘</h3>
+                    <p>通过百度网盘下载最新版本</p>
+                    <a href="https://pan.baidu.com/s/1ZnkOIhMZxNznZtzSL0abLQ?pwd=9527" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 前往下载
+                    </a>
+                </div>
+                
+                <div class="download-card">
                     <i class="fab fa-apple"></i>
                     <h3>iOS 版</h3>
                     <p>适用于 iOS 12.0 及以上版本</p>
@@ -920,7 +976,6 @@
                         <i class="fas fa-external-link-alt"></i> App Store
                     </a>
                 </div>
-                
                 <div class="download-card">
                     <i class="fas fa-desktop"></i>
                     <h3>Web 版</h3>
@@ -944,6 +999,9 @@
                 <div class="footer-logo">
                     <h3><i class="fas fa-toolbox"></i> 万能工具盒</h3>
                     <p>多功能工具集合应用，包含各种实用工具和小游戏，满足您日常学习、工作和生活的各种需求。</p>
+                    <p style="margin-top: 10px;">
+                        <i class="fas fa-envelope"></i> 邮箱: <a href="mailto:fangyuanning@163.com" style="color: rgba(255, 255, 255, 0.8);">fangyuanning@163.com</a>
+                    </p>
                 </div>
                 
                 <div class="footer-links">
@@ -960,9 +1018,9 @@
                     <h4>支持</h4>
                     <ul>
                         <li><a href="#">用户手册</a></li>
-                        <li><a href="#">常见问题</a></li>
+                        <li><a href="terms_of_service.html">用户协议</a></li>
                         <li><a href="#community">加入QQ群</a></li>
-                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="privacy_policy.html">隐私政策</a></li>
                     </ul>
                 </div>
                 
@@ -972,13 +1030,13 @@
                         <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
                         <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
                         <li><a href="#"><i class="fab fa-weibo"></i> 微博</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i> 邮箱</a></li>
+                        <li><a href="mailto:fangyuanning@163.com"><i class="fas fa-envelope"></i> 邮箱</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 万能工具盒. 保留所有权利. 版本 2.0.1</p>
+                <p>&copy; 2025 万能工具盒. 保留所有权利. 版本 1.0.1</p>
                 <p>本应用部分功能需要网络连接，请确保您的设备已连接到互联网。</p>
             </div>
         </div>
@@ -1065,12 +1123,16 @@
             });
         });
         
-        // 下载按钮点击事件（除Android外）
+        // 下载按钮点击事件（除Android和百度网盘外）
         document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
             btn.addEventListener('click', function(e) {
-                // 如果按钮不是Android下载按钮，并且链接是空的或为#，则阻止跳转
+                // 如果按钮不是Android下载按钮，也不是百度网盘按钮，并且链接是空的或为#，则阻止跳转
                 const href = this.getAttribute('href');
-                if (href === '#' || (href === '' && !this.closest('.download-card').querySelector('.fa-android'))) {
+                const card = this.closest('.download-card');
+                const isAndroid = card && card.querySelector('.fa-android');
+                const isBaidu = card && card.querySelector('.fa-baidu');
+                
+                if ((href === '#' || href === '') && !isAndroid && !isBaidu) {
                     e.preventDefault();
                     alert('感谢您对万能工具盒的兴趣！该版本即将开放，请稍后关注。');
                 }
