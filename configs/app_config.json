@@ -1,0 +1,33 @@
+{
+  "version": "1.0.2",
+  "timestamp": "2026-01-25T10:20:00.000Z",
+  "update": {
+    "available": true,
+    "version": "1.0.2",
+    "download_url": "/万能工具V2.apk",
+    "description": "新版本修复了若干问题并优化了用户体验",
+    "force_update": false,
+    "file_size": 15728640,
+    "md5": "d41d8cd98f00b204e9800998ecf8427e",
+    "changelog": "- 修复了设置页面的隐私政策和服务条款功能\n- 优化了启动性能\n- 改进了用户界面响应速度\n- 修复了已知的崩溃问题"
+  },
+  "features": {
+    "remote_web_tools": true,
+    "advertisement": true,
+    "remote_commands": true
+  },
+  "advertisement": {
+    "enabled": true,
+    "interval": 300000,
+    "url": "/api/ad",
+    "position": "bottom",
+    "show_count": 3,
+    "max_clicks": 10
+  },
+  "remote_commands": [],
+  "web_tools": {
+    "last_updated": "2024-12-25T10:20:00.000Z",
+    "count": 0,
+    "url": "/api/web-tools"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "version": "1.0.3-dev",
+  "timestamp": "2024-12-25T12:00:00.000Z",
+  "environment": "debug",
+  "update": {
+    "available": true,
+    "version": "1.0.3-dev",
+    "download_url": "/万能工具V2.apk",
+    "description": "开发版本：包含最新的功能测试和调试工具",
+    "force_update": false,
+    "file_size": 18622400,
+    "md5": "b2c3d4e5f6a789012345678901234567890",
+    "changelog": "- 🔧 开发功能更新\n- 🐛 修复调试问题\n- 📊 增加调试信息面板\n- 🧪 测试新功能"
+  },
+  "features": {
+    "remote_web_tools": true,
+    "advertisement": false,
+    "remote_commands": true
+  },
+  "advertisement": {
+    "enabled": false,
+    "interval": 600000,
+    "url": "/api/ad",
+    "position": "bottom",
+    "show_count": 1,
+    "max_clicks": 5
+  },
+  "remote_commands": [
+    {
+      "id": "debug_tools",
+      "type": "debug",
+      "data": {
+        "title": "调试工具",
+        "message": "启用调试模式以获得更多控制选项"
+      },
+      "enabled": true
+    }
+  ],
+  "web_tools": {
+    "last_updated": "2024-12-25T12:00:00.000Z",
+    "count": 8,
+    "url": "/api/web-tools"
+  }
+}
