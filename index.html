@@ -1,11 +1,1100 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>我的个人网站</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>万能工具盒 - 多功能工具集合应用</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --primary-dark: #3a56d6;
+            --secondary-color: #6c63ff;
+            --accent-color: #ff6b8b;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --light-gray: #e9ecef;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9fafc;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            opacity: 0.9;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: white;
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6eeff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234a6bff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--gray-color);
+            max-width: 600px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(74, 107, 255, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .app-mockup {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+            transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+        
+        .app-mockup:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+        
+        /* 功能区域 */
+        .features {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray-color);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(74, 107, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .feature-card p {
+            color: var(--gray-color);
+        }
+        
+        /* 截图区域 */
+        .screenshots {
+            padding: 100px 0;
+            background-color: #f5f8ff;
+        }
+        
+        .screenshots-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .screenshot-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 10px;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .screenshot-slider::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Edge */
+        }
+        
+        .screenshot-item {
+            flex: 0 0 auto;
+            width: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .screenshot-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .slider-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid var(--light-gray);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slider-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        /* QQ群区域 */
+        .community {
+            padding: 100px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .community-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .community-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .community-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .community-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .qrcode-container {
+            margin: 30px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .qrcode-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .qrcode-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .qq-group-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .qq-group-info i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .community-text {
+            font-size: 1.1rem;
+            color: var(--gray-color);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* 下载区域 */
+        .download {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+        
+        .download h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .download p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .download-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .download-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            width: 280px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+        
+        .download-card:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+        }
+        
+        .download-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .download-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .download-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-logo p {
+            opacity: 0.8;
+            max-width: 300px;
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .app-mockup {
+                max-width: 80%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-dark);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .download h2 {
+                font-size: 2.2rem;
+            }
+            
+            .download-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .community-card {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .qq-group-info {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>这是我的GitHub Pages网站。更目录！</p>
-    <a href="https://popefang.github.io/anytools/万能工具.apk">万能工具下载</a>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-toolbox"></i>
+                <span>万能工具盒</span>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#features">功能</a></li>
+                    <li><a href="#screenshots">截图</a></li>
+                    <li><a href="#community">加入社群</a></li>
+                    <li><a href="#download">下载</a></li>
+                    <li><a href="#contact">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>您的随身<span>多功能工具盒</span></h1>
+                    <p>一款集成了计算器、单位换算、密码生成、汉字学习、古诗词查阅、文件传输、学习计划管理等多种实用工具的应用程序。满足您日常学习、工作和生活的各种需求。</p>
+                    <div class="cta-buttons">
+                        <a href="#download" class="btn btn-primary">
+                            <i class="fas fa-download"></i> 立即下载
+                        </a>
+                        <a href="#community" class="btn btn-secondary">
+                            <i class="fab fa-qq"></i> 加入QQ群
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="万能工具盒应用界面" class="app-mockup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能区域 -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>强大的功能集合</h2>
+                <p>万能工具盒提供了丰富的实用工具，涵盖计算、换算、教育、生活、安全等多个领域</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>多种计算器</h3>
+                    <p>基础计算器、科学计算器、BMI计算器、货币换算器等，满足各种计算需求</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>单位换算</h3>
+                    <p>支持长度、重量、温度、面积、体积、速度、数据、压力等数十种单位换算</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>教育工具</h3>
+                    <p>汉字学习、古诗词查阅、成语词典、英语单词学习、数学题生成器等教育工具</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>安全工具</h3>
+                    <p>密码生成器、文件加密等安全工具，保护您的个人信息和数据安全</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>学习计划</h3>
+                    <p>学习计划管理器，帮助您制定每日学习计划，设置提醒，跟踪完成进度</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>多语言支持</h3>
+                    <p>支持中文、英文、西班牙语等多种语言，满足不同用户的使用需求</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 截图区域 -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <div class="section-title">
+                <h2>应用截图</h2>
+                <p>直观的用户界面，简洁的设计，提供流畅的使用体验</p>
+            </div>
+            
+            <div class="screenshots-container">
+                <div class="screenshot-slider" id="screenshotSlider">
+                    <!-- 截图1 -->
+                    <div class="screenshot-item">
+                        <img src="imgs/screenshoot1.jpg" alt="英语连连看">
+                    </div>
+                    
+                    <!-- 截图2 -->
+                    <div class="screenshot-item">
+                        <img src="imgs/screenshoot2.jpg" alt="英语连连看">
+                    </div>
+                    
+                    <!-- 截图3 -->
+                    <div class="screenshot-item">
+                       <img src="imgs/screenshoot3.jpg" alt="诗词详情">
+                    </div>
+                    
+                    <div class="screenshot-item">
+                       <img src="imgs/screenshoot4.jpg" alt="成语词典">
+                    </div>
+
+                    <div class="screenshot-item">
+                       <img src="imgs/screenshoot5.jpg" alt="汉字学习工具">
+                    </div>
+
+                    <div class="screenshot-item">
+                       <img src="imgs/screenshoot6.jpg" alt="2046游戏">
+                    </div>
+
+                    <div class="screenshot-item">
+                       <img src="imgs/screenshoot7.jpg" alt="五子棋游戏">
+                    </div>
+
+                    <div class="screenshot-item">
+                       <img src="imgs/screenshoot8.jpg" alt="扫雷游戏">
+                    </div>
+
+                    <div class="screenshot-item">
+                       <img src="imgs/screenshoot9.jpg" alt="DeepSeek">
+                    </div>
+
+                    <div class="screenshot-item">
+                       <img src="imgs/screenshoot10.jpg" alt="秘密生成管理工具">
+                    </div>
+
+                    <div class="screenshot-item">
+                       <img src="imgs/screenshoot11.jpg" alt="俄罗斯方块">
+                    </div>
+
+                    <div class="screenshot-item">
+                       <img src="imgs/screenshoot12.jpg" alt="BMI工具">
+                    </div>
+                   
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QQ群区域 -->
+    <section class="community" id="community">
+        <div class="container">
+            <div class="section-title">
+                <h2>加入我们的社群</h2>
+                <p>加入QQ群，获取最新更新、反馈问题和与其他用户交流</p>
+            </div>
+            
+            <div class="community-content">
+                <div class="community-card">
+                    <div class="community-icon">
+                        <i class="fab fa-qq"></i>
+                    </div>
+                    <h3>万能工具盒交流群</h3>
+                    <p class="community-text">
+                        欢迎加入万能工具盒官方QQ群！在这里您可以获取最新版本信息，反馈使用中的问题，提出功能建议，并与其他用户交流使用心得。
+                    </p>
+                    
+                    <div class="qrcode-container">
+                        <!-- 这里放置您的QQ群二维码图片 -->
+                        <div class="qrcode-image">
+                            <img src="imgs/QQscan.jpg" alt="QQ群二维码">
+                        </div>
+                        
+                        <div class="qq-group-info">
+                            <i class="fab fa-qq"></i>
+                            <span>QQ群号: 207436882</span>
+                        </div>
+                    </div>
+                    
+                    <p class="community-text" style="margin-top: 20px;">
+                        扫描上方二维码或搜索群号 <strong>207436882</strong> 加入我们的社群。我们的开发团队会定期在群内发布更新信息，并解答用户的问题。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载区域 -->
+    <section class="download" id="download">
+        <div class="container">
+            <h2>立即下载万能工具盒</h2>
+            <p>适用于 Android 和 iOS 设备，完全免费使用。立即下载，体验多功能工具集合带来的便利。</p>
+            
+            <div class="download-options">
+                <div class="download-card">
+                    <i class="fab fa-android"></i>
+                    <h3>Android 版</h3>
+                    <p>适用于 Android 5.0 及以上版本</p>
+                    <a href="https://unitools.top/%E4%B8%87%E8%83%BD%E5%B7%A5%E5%85%B7.apk" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-download"></i> 下载 APK
+                    </a>
+                </div>
+                
+                <div class="download-card">
+                    <i class="fab fa-apple"></i>
+                    <h3>iOS 版</h3>
+                    <p>适用于 iOS 12.0 及以上版本</p>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> App Store
+                    </a>
+                </div>
+                
+                <div class="download-card">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Web 版</h3>
+                    <p>直接在浏览器中使用，无需下载</p>
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fas fa-globe"></i> 在线使用
+                    </a>
+                </div>
+            </div>
+            
+            <p style="margin-top: 40px; font-size: 0.9rem; opacity: 0.7;">
+                版本: 2.0.1 | 大小: 45 MB | 更新日期: 2025-12-29
+            </p>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><i class="fas fa-toolbox"></i> 万能工具盒</h3>
+                    <p>多功能工具集合应用，包含各种实用工具和小游戏，满足您日常学习、工作和生活的各种需求。</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>功能分类</h4>
+                    <ul>
+                        <li><a href="#features">计算器工具</a></li>
+                        <li><a href="#features">单位换算</a></li>
+                        <li><a href="#features">教育工具</a></li>
+                        <li><a href="#features">安全工具</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="#">用户手册</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#community">加入QQ群</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-weibo"></i> 微博</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> 邮箱</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 万能工具盒. 保留所有权利. 版本 2.0.1</p>
+                <p>本应用部分功能需要网络连接，请确保您的设备已连接到互联网。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // 点击导航链接关闭菜单
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // 截图轮播功能
+        const screenshotSlider = document.getElementById('screenshotSlider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        nextBtn.addEventListener('click', () => {
+            screenshotSlider.scrollBy({
+                left: 330,
+                behavior: 'smooth'
+            });
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            screenshotSlider.scrollBy({
+                left: -330,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 页面滚动时高亮当前菜单项
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let currentSectionId = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSectionId = section.id;
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // 下载按钮点击事件（除Android外）
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // 如果按钮不是Android下载按钮，并且链接是空的或为#，则阻止跳转
+                const href = this.getAttribute('href');
+                if (href === '#' || (href === '' && !this.closest('.download-card').querySelector('.fa-android'))) {
+                    e.preventDefault();
+                    alert('感谢您对万能工具盒的兴趣！该版本即将开放，请稍后关注。');
+                }
+            });
+        });
+        
+        // 复制QQ群号功能
+        const qqGroupElement = document.querySelector('.qq-group-info');
+        if (qqGroupElement) {
+            qqGroupElement.addEventListener('click', function() {
+                const qqGroupNumber = '207436882';
+                navigator.clipboard.writeText(qqGroupNumber).then(() => {
+                    const originalText = this.querySelector('span').textContent;
+                    this.querySelector('span').textContent = '已复制到剪贴板！';
+                    
+                    setTimeout(() => {
+                        this.querySelector('span').textContent = originalText;
+                    }, 2000);
+                });
+            });
+            
+            qqGroupElement.style.cursor = 'pointer';
+            qqGroupElement.title = '点击复制群号';
+        }
+    </script>
 </body>
 </html>
