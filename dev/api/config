@@ -13,32 +13,15 @@
     "advertisement": true,
     "remote_commands": true
   },
-  "advertisement": {
-    "enabled": true,
-    "interval_minutes": 30,
-    "urls": [
-      "https://unitools.top/ads/notification.html",
-      "https://unitools.top/ads/promotion.html"
-    ],
-    "schedule": [
-      {
-        "hour": 9,
-        "minute": 0
-      },
-      {
-        "hour": 14,
-        "minute": 30
-      },
-      {
-        "hour": 19,
-        "minute": 0
-      }
-    ]
-  },
+   "advertisement": {
+        "enabled": true,
+        "daily_max_showings": 500
+    },
+    "advertisements_url": "api/advertisements.json",
   "remote_commands": [],
   "web_tools": {
     "last_updated": "2025-12-29T13:29:14.003Z",
     "count": 0,
-    "url": "/api/web_tools"
+    "url": "/api/web_tools.json"
   }
 }

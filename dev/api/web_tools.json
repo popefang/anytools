@@ -1,0 +1,22 @@
+[
+  {
+    "id": "remote_tool_4",
+    "name": "世界时钟",
+    "description": "查看全球各地时间",
+    "category": "category.lifestyle",
+    "icon": 59573,
+    "color": 4280391411,
+    "priority": 84,
+    "networkUrl": "https://www.timeanddate.com/worldclock/",
+    "isNetwork": true,
+    "config": {
+      "lazyLoad": true,
+      "settings": {
+        "enableJavaScript": true,
+        "enableZoom": true,
+        "helpText": "查看世界各地的时间，支持多个城市同时显示",
+        "showNavigationControls": true
+      }
+    }
+  }
+]
