@@ -15,7 +15,8 @@
   },
    "advertisement": {
         "enabled": true,
-        "daily_max_showings": 500
+        "daily_max_showings": 500,
+        "show_interval_minutes":0
     },
     "advertisements_url": "api/advertisements.json",
   "remote_commands": [],
