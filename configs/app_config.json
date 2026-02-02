@@ -1,33 +1,44 @@
 {
   "version": "1.0.2",
-  "timestamp": "2026-01-25T10:20:00.000Z",
+  "timestamp": "2024-12-25T12:00:00.000Z",
+  "environment": "debug",
   "update": {
     "available": true,
     "version": "1.0.2",
-    "download_url": "/万能工具V2.apk",
-    "description": "新版本修复了若干问题并优化了用户体验",
+    "download_url": "/app-debug.apk",
+    "description": "开发版本：包含最新的功能测试和调试工具",
     "force_update": false,
-    "file_size": 15728640,
-    "md5": "d41d8cd98f00b204e9800998ecf8427e",
-    "changelog": "- 修复了设置页面的隐私政策和服务条款功能\n- 优化了启动性能\n- 改进了用户界面响应速度\n- 修复了已知的崩溃问题"
+    "file_size": 73623322,
+    "md5": "074d0a519fb292007baa91fd7fa61d4b5231602f",
+    "changelog": "- 🔧 开发功能更新\n- 🐛 修复调试问题\n- 📊 增加调试信息面板\n- 🧪 测试新功能"
   },
   "features": {
     "remote_web_tools": true,
-    "advertisement": true,
+    "advertisement": false,
     "remote_commands": true
   },
   "advertisement": {
-    "enabled": true,
-    "interval": 300000,
+    "enabled": false,
+    "interval": 600000,
     "url": "/api/ad",
     "position": "bottom",
-    "show_count": 3,
-    "max_clicks": 10
+    "show_count": 1,
+    "max_clicks": 5
   },
-  "remote_commands": [],
+  "remote_commands": [
+    {
+      "id": "debug_tools",
+      "type": "debug",
+      "data": {
+        "title": "调试工具",
+        "message": "启用调试模式以获得更多控制选项"
+      },
+      "enabled": true
+    }
+  ],
   "web_tools": {
-    "last_updated": "2024-12-25T10:20:00.000Z",
-    "count": 0,
+    "last_updated": "2024-12-25T12:00:00.000Z",
+    "count": 8,
     "url": "/api/web-tools"
   }
 }

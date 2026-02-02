@@ -1,0 +1,63 @@
+{
+  "tools": [
+    {
+      "id": "remote_tool_4",
+      "name": "世界时钟游戏",
+      "description": "查看全球各地时间",
+      "category": "category.goodgame",
+      "icon": 59573,
+      "color": 4280391411,
+      "priority": 84,
+      "networkUrl": "https://www.timeanddate.com/worldclock/",
+      "isNetwork": true,
+      "config": {
+        "lazyLoad": true,
+        "settings": {
+          "fullScreen":true,
+          "enableJavaScript": true,
+          "enableZoom": true,
+          "helpText": "查看世界各地的时间，支持多个城市同时显示",
+          "showNavigationControls": true
+        }
+      }
+    },
+     {
+      "id": "remote_tool_5",
+      "name": "世界时钟",
+      "description": "查看全球各地时间",
+      "category": "category.testhome",
+      "icon": 59573,
+      "color": 4280391411,
+      "priority": 84,
+      "networkUrl": "https://www.timeanddate.com/worldclock/",
+      "isNetwork": true,
+      "config": {
+        "lazyLoad": true,
+        "settings": {
+          "enableJavaScript": true,
+          "enableZoom": true,
+          "helpText": "查看世界各地的时间，支持多个城市同时显示",
+          "showNavigationControls": true
+        }
+      }
+    }
+  ],
+  "categories": [
+     {
+      "id":"category.testhome",
+      "nameKey":"测试主页分类",
+      "priority":100,
+      "icon":59573,
+      "color":4280391411,
+      "displayLocation":"home"
+    },
+    {
+      "id":"category.goodgame",
+      "nameKey":"测试游戏",
+      "priority":100,
+      "icon":59573,
+      "color":4280391411,
+      "displayLocation":"games"
+    }
+  ]
+}

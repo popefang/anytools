@@ -1,0 +1,47 @@
+[
+  {
+    "id": "notification_ad",
+    "title": "通知推广",
+    "description": "查看最新功能通知",
+    "url": "http://192.168.1.105:9000/ads/notification.html",
+    "weight": 3,
+    "start_date": "2026-01-01T00:00:00.000Z",
+    "end_date": "2026-12-31T23:59:59.999Z",
+    "target_platforms": ["android", "ios"],
+    "target_versions": ["1.0.0+"],
+    "metadata": {
+      "category": "notification",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "promotion_ad", 
+    "title": "限时优惠",
+    "description": "限时优惠活动，不容错过",
+    "url": "http://192.168.1.105:9000/ads/promotion.html",
+    "weight": 2,
+    "start_date": "2026-01-15T00:00:00.000Z",
+    "end_date": "2026-02-15T23:59:59.999Z",
+    "target_platforms": ["android", "ios", "web"],
+    "target_versions": ["1.0.0+"],
+    "metadata": {
+      "category": "promotion",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "feature_ad",
+    "title": "新功能介绍",
+    "description": "了解最新的功能特性",
+    "url": "http://192.168.1.105:9000/ads/feature.html", 
+    "weight": 1,
+    "start_date": "2026-01-01T00:00:00.000Z",
+    "end_date": "2026-03-31T23:59:59.999Z",
+    "target_platforms": ["android", "ios", "web"],
+    "target_versions": ["1.2.0+"],
+    "metadata": {
+      "category": "feature",
+      "priority": "low"
+    }
+  }
+]

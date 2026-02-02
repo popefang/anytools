@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2025-12-29T13:29:14.002Z",
+  "update": {
+    "available": false,
+    "version": "1.0.0",
+    "download_url": "",
+    "description": "",
+    "force_update": false
+  },
+  "features": {
+    "remote_web_tools": true,
+    "advertisement": true,
+    "remote_commands": true
+  },
+   "advertisement": {
+        "enabled": true,
+        "daily_max_showings": 500,
+        "show_interval_minutes":30
+    },
+    "advertisements_url": "api/advertisements.json",
+  "remote_commands": [],
+  "web_tools": {
+    "last_updated": "2025-12-29T13:29:14.003Z",
+    "count": 0,
+    "url": "/api/web_tools.json"
+  }
+}
