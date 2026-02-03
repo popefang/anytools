@@ -9,9 +9,9 @@
     "force_update": false
   },
   "features": {
-    "remote_web_tools": true,
-    "advertisement": true,
-    "remote_commands": true
+    "remote_web_tools": false,
+    "advertisement": false,
+    "remote_commands": false
   },
    "advertisement": {
         "enabled": false,
