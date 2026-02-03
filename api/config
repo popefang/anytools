@@ -14,7 +14,7 @@
     "remote_commands": true
   },
    "advertisement": {
-        "enabled": true,
+        "enabled": false,
         "daily_max_showings": 500,
         "show_interval_minutes":30
     },
