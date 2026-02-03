@@ -3,7 +3,7 @@
   "timestamp": "2024-12-25T12:00:00.000Z",
   "environment": "debug",
   "update": {
-    "available": true,
+    "available": false,
     "version": "1.0.2",
     "download_url": "/app-debug.apk",
     "description": "开发版本：包含最新的功能测试和调试工具",
@@ -13,9 +13,9 @@
     "changelog": "- 🔧 开发功能更新\n- 🐛 修复调试问题\n- 📊 增加调试信息面板\n- 🧪 测试新功能"
   },
   "features": {
-    "remote_web_tools": true,
+    "remote_web_tools": false,
     "advertisement": false,
-    "remote_commands": true
+    "remote_commands": false
   },
   "advertisement": {
     "enabled": false,
